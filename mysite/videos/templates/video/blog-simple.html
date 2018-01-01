@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Home</title>
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+</head>
+<body>
+
+
+
+<!--Nav Bar -->
+<div class="top-bar">
+<div class="top-bar-left">
+<ul class="menu">
+<li class="menu-text">Videos</li>
+<li><a href="#">First</a></li>
+<li><a href="#">Second</a></li>
+<li><a href="#">Last</a></li>
+</ul>
+</div>
+</div>
+
+
+<!-- Blue Title Txt -->
+<div class="callout large primary">
+<div class="row column text-center">
+<h1>Videos</h1>
+<h2 class="subheader">Working Hard</h2>
+</div>
+</div>
+
+<!-- Video Post Title Articles -->
+{%	for video in all_videos	%}
+<div class="row medium-8 large-7 columns">
+<div class="blog-post">
+<h3>{{ video.title }} <small>{{video.date}}</small></h3>
+<!-- Video Diplay -->
+<video width="320" height="240" controls>
+	<source src="video.video" type="video/mp4">
+</video>
+<p>{{video.description}}</p>
+<div class="callout">
+<ul class="menu simple">
+<li><a href="#">Creator: {{video.creator}}</a></li>
+<li><a href="#">Comments: 0</a></li>
+</ul>
+</div>
+</div>
+</div>
+{%	endfor	%}
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+      $(document).foundation();
+    </script>
+</body>
+</html>

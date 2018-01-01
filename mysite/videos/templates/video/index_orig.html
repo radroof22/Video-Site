@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>EDU-Share</title>
+		<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+	</head>
+	<body>
+
+
+
+		<!--Nav Bar -->
+		<div class="top-bar">
+		<div class="top-bar-left">
+		<ul class="menu">
+		<li class="menu-text">Videos</li>
+		<li><a href="#">Video-Articles</a></li>
+		<li><a href="#">***</a></li>
+		<li><a href="#">***</a></li>
+		</ul>
+		</div>
+		</div>
+		 
+		 
+		<!-- Blue Title Txt -->
+		<div class="callout large primary">
+		<div class="row column text-center">
+		<h1>EDU-Share</h1>
+		<h2 class="subheader">Educating the Internet</h2>
+		</div>
+		</div>
+		<!-- Video Post Title Articles -->
+		{%	for video in all_videos reversed	%}
+			<div class="row medium-8 large-7 columns">
+			<div class="blog-post">
+			<h3>{{ video.title }} <small>{{video.date}}</small></h3>
+			
+			
+			
+			<!-- Video Diplay -->
+			<iframe width="420" height="315"
+				src="{{video.video}}">
+			</iframe>
+
+			
+			
+			<p>{{video.description}}</p>
+			<div class="callout">
+			<ul class="menu simple">
+			<li><a href="{% url 'videos:view_video' video.id %}">Creator: {{video.creator}}</a></li>
+			</ul>
+			</div>
+			</div>
+		</div>
+		{%	endfor	%}
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+		<script>
+			  $(document).foundation();
+		</script>
+	</body>
+</html>
